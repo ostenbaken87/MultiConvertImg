@@ -1,0 +1,20 @@
+FROM php:8.2-fpm
+
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    zlib1g-dev \
+    libonig-dev \
+    libpq-dev \
+    libwebp-dev \
+    curl \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
+    && docker-php-ext-install gd zip pdo pdo_mysql
+
+RUN docker-php-ext-configure exif
+RUN docker-php-ext-install exif
+RUN docker-php-ext-enable exif
+
+WORKDIR /var/www

@@ -1,0 +1,7 @@
+   # Игнорировать временные файлы MySQL
+   storage/docker/mysql/*.dblwr
+   storage/docker/mysql/*.cnf
+   storage/docker/mysql/*.index
+   storage/docker/mysql/*.pool
+   storage/docker/mysql/mysql.sock
+   
